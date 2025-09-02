@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beqabakes — Because Beqa dey Bake</title>
+  <meta name="description" content="Gift-ready cakes & mini boxes in Abuja. Every box feels like a celebration.">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Mulish:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --cream: #FFE3E9;
+      --text: #2E2E2E;
+      --pink: #F58BA6;
+      --green: #AAC8A7;
+      --brown: #5C2C1D;
+      --rose: #D16681;
+      --blush: #F7D8DF;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Mulish', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    .serif { font-family: 'Playfair Display', serif; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+    
+    /* Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .float { animation: float 6s ease-in-out infinite; }
+    .fade-up { animation: fadeUp 0.8s ease forwards; }
+    
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 227, 233, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+  
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      background: none;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      color: white;
+      font-weight: bold;
+    }
+    
+      .logo-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 0px;
+    }
+
+    .logo-text h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    
+    .logo-text p {
+      font-size: 0.75rem;
+      color: var(--brown);
+      margin-top: -0.25rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-links a:hover { color: var(--pink); }
+    
+    .btn {
+      background: var(--pink);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-block;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: inherit;
+    }
+    
+    .btn:hover {
+      background: var(--rose);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(245, 139, 166, 0.3);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: var(--brown);
+      border: 2px solid var(--brown);
+    }
+    
+    .btn-outline:hover {
+      background: var(--brown);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: var(--green);
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: #96b593;
+    }
+    
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--blush) 100%);
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 2px, transparent 2px),
+        radial-gradient(circle at 80% 20%, rgba(245,139,166,0.1) 1px, transparent 1px);
+      background-size: 60px 60px, 80px 80px;
+    }
+    
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-text h2 {
+      font-size: clamp(3rem, 8vw, 5rem);
+      line-height: 0.9;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero-text .highlight { color: var(--pink); }
+    
+    .hero-text p {
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+    }
+    
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .hero-note {
+      font-size: 0.875rem;
+      opacity: 0.6;
+    }
+    
+    .hero-visual {
+      position: relative;
+      height: 500px;
+    }
+    
+    .gift-box {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+    
+        .gift-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    .ribbon {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 20px;
+      background: var(--pink);
+      border-radius: 20px;
+    }
+    
+    /* Sections */
+    section {
+      padding: 5rem 0;
+    }
+    
+    .section-white { background: white; }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-title h3 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .section-title p {
+      font-size: 1.125rem;
+      opacity: 0.7;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Grid */
+    .grid {
+      display: grid;
+      gap: 2rem;
+    }
+    
+    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    
+    .card-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .card-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .icon-pink { background: rgba(245, 139, 166, 0.1); color: var(--pink); }
+    .icon-green { background: rgba(170, 200, 167, 0.1); color: var(--green); }
+    .icon-brown { background: rgba(92, 44, 29, 0.1); color: var(--brown); }
+    
+    .card h4 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    
+    .card p {
+      opacity: 0.7;
+      font-size: 0.95rem;
+    }
+    
+    /* Menu Cards */
+    .menu-card {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .menu-card-image {
+      height: 200px;
+      background: var(--blush);
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .menu-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .menu-card h4 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .menu-card .price {
+      font-size: 1.75rem;
+      color: var(--pink);
+      font-weight: 700;
+      margin: 1rem 0;
+    }
+    
+    .menu-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .menu-actions .btn {
+      flex: 1;
+    }
+    
+    /* CTA Section */
+    .cta {
+      background: linear-gradient(135deg, var(--pink) 0%, var(--rose) 100%);
+      color: white;
+      text-align: center;
+    }
+    
+    .cta h3 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .cta p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    .cta .btn {
+      background: white;
+      color: var(--pink);
+      font-size: 1.125rem;
+      padding: 1rem 2rem;
+    }
+    
+    .cta .btn:hover {
+      background: var(--cream);
+      transform: translateY(-3px);
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--text);
+      color: white;
+      padding: 3rem 0 1rem;
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .footer-links a {
+      color: var(--pink);
+      text-decoration: none;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      opacity: 0.6;
+      font-size: 0.875rem;
+    }
+
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal {
+      background: white;
+      border-radius: 20px;
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      animation: slideDown 0.3s ease;
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, var(--pink), var(--rose));
+      color: white;
+      padding: 2rem;
+      border-radius: 20px 20px 0 0;
+      text-align: center;
+    }
+
+    .modal-header h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-body {
+      padding: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 2px solid var(--blush);
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      background: white;
+    }
+
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--pink);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .order-summary {
+      background: var(--cream);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
+
+    .order-summary h4 {
+      color: var(--brown);
+      margin-bottom: 1rem;
+    }
+
+    .order-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .order-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 2px solid var(--blush);
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: var(--pink);
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .modal-actions .btn {
+      flex: 1;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    /* Loading State */
+    .loading {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .loading::after {
+      content: '...';
+      animation: loading-dots 1.5s infinite;
+    }
+
+    @keyframes loading-dots {
+      0%, 20% { content: ''; }
+      40% { content: '.'; }
+      60% { content: '..'; }
+      80%, 100% { content: '...'; }
+    }
+    
+    /* Mobile */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero-content { grid-template-columns: 1fr; text-align: center; }
+      .hero-actions { flex-direction: column; }
+      .footer-content { flex-direction: column; gap: 1rem; }
+      .menu-actions { flex-direction: column; }
+      .modal-actions { flex-direction: column; }
+      
+      .mobile-cta {
+        position: fixed;
+        bottom: 1rem;
+        left: 1rem;
+        right: 1rem;
+        z-index: 50;
+      }
+    }
+    
+    /* Utility */
+    .hidden { display: none; }
+    .text-center { text-align: center; }
+    .mb-1 { margin-bottom: 0.5rem; }
+    .mb-2 { margin-bottom: 1rem; }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <div class="nav-content">
+        <div class="logo">
+          <div class="logo-mark float">
+          <img src="logo.png" alt="Beqabakes Logo">
+          </div>
+          <div class="logo-text">
+            <h1 class="serif">Beqabakes</h1>
+            <p>Because Beqa dey Bake.</p>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="#menu">Menu</a>
+          <a href="#story">Story</a>
+          <a href="https://wa.me/2349056722179?text=Hi%20Beqa%2C%20I%20want%20to%20preorder">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content fade-up">
+        <div class="hero-text">
+          <h2 class="serif">
+            Because Beqa<br>
+            <span class="highlight">dey Bake.</span>
+          </h2>
+          <p>Every box feels like a celebration — gift-ready cakes & mini boxes wrapped with ribbon and love.</p>
+          <div class="hero-actions">
+            <button class="btn" onclick="openOrderModal('Love Crate', 8000)">Preorder Love Crate</button>
+            <a href="#menu" class="btn btn-outline">See Menu</a>
+          </div>
+          <p class="hero-note">📸 Photo-on-delivery + tag us for ₦500 off next order</p>
+        </div>
+        <div class="hero-visual">
+          <div class="gift-box float">
+          <img src="hero-giftbox.png" alt="Gift Box">
+            <div class="ribbon"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section-white">
+    <div class="container">
+      <div class="grid grid-3">
+        <div class="card fade-up">
+          <div class="card-icon icon-pink">
+          <img src="gift-ready-icon.png" alt="Gift Ready">
+          </div>
+          <h4 class="serif">Gift-Ready by Default</h4>
+          <p>Ribbon, handwritten note & photo-on-delivery included with every order.</p>
+        </div>
+        <div class="card fade-up">
+          <div class="card-icon icon-green">
+          <img src="express-delivery-icon.png" alt="Express Delivery">
+          </div>
+          <h4 class="serif">Express Delivery</h4>
+          <p>Same-day & next-day options for last-minute celebrations across Abuja.</p>
+        </div>
+        <div class="card fade-up">
+          <div class="card-icon icon-brown">
+          <img src="seasonal-drops-icon.png" alt="Seasonal Drops">
+          </div>
+          <h4 class="serif">Seasonal Drops</h4>
+          <p>Limited artisanal collections & corporate gifting programs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section id="menu">
+    <div class="container">
+      <div class="section-title fade-up">
+        <h3 class="serif">Signature Menu</h3>
+        <p>Thoughtfully crafted, beautifully presented. Each creation tells a story of care.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card menu-card fade-up">
+          <div class="menu-card-image">
+            <img src="mini-gift-box.jpg" alt="Mini Gift Box">
+          </div>
+          <h4 class="serif">Mini Gift Box</h4>
+          <p>Perfect slice + 2 artisanal treats + handwritten note.</p>
+          <div class="price serif">₦5,000</div>
+          <div class="menu-actions">
+            <button class="btn" onclick="openOrderModal('Mini Gift Box', 5000)">Order Now</button>
+            <a href="https://wa.me/2349056722179?text=Hi%20Beqa%2C%20Mini%20Gift%20Box%20please" class="btn btn-secondary">WhatsApp</a>
+          </div>
+        </div>
+        <div class="card menu-card fade-up">
+          <div class="menu-card-image">
+          <img src="express-bento.jpg" alt="Express Bento">
+          </div>
+          <h4 class="serif">Express Bento</h4>
+          <p>Single-serve perfection. Instagram-ready, same-day available.</p>
+          <div class="price serif">₦4,500</div>
+          <div class="menu-actions">
+            <button class="btn" onclick="openOrderModal('Express Bento', 4500)">Order Now</button>
+            <a href="https://wa.me/2349056722179?text=Hi%20Beqa%2C%20Express%20Bento%20please" class="btn btn-secondary">WhatsApp</a>
+          </div>
+        </div>
+        <div class="card menu-card fade-up">
+          <div class="menu-card-image">
+          <img src="signature-cake.jpg" alt="Signature Cake">
+          </div>
+          <h4 class="serif">Signature Cake</h4>
+          <p>Romantic layered masterpiece. 6" serves 6-8 people perfectly.</p>
+          <div class="price serif">₦12,000</div>
+          <div class="menu-actions">
+            <button class="btn" onclick="openOrderModal('Signature Cake', 12000)">Order Now</button>
+            <a href="https://wa.me/2349056722179?text=Hi%20Beqa%2C%20Signature%20Cake%20please" class="btn btn-secondary">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section id="story" class="section-white">
+    <div class="container text-center fade-up">
+      <h3 class="serif" style="font-size: 2.5rem; margin-bottom: 2rem;">Our Story</h3>
+      <p style="font-size: 1.125rem; max-width: 800px; margin: 0 auto; opacity: 0.8;">
+        Beqabakes makes gift-first bakes in Abuja — romantic, visual-forward cakes and curated mini boxes wrapped and ready to delight. Founded by Rebecca "Beqa" Iliya, each order ships with a handwritten note, ribbon and a promise: thoughtful presentation first, indulgent taste next.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container fade-up">
+      <h3 class="serif">Limited Love Crate Drop</h3>
+      <p>50 units only • Free ribbon + handwritten note</p>
+      <button class="btn" onclick="openOrderModal('Love Crate', 8000)">Reserve My Crate</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="logo">
+          <div class="logo-mark">
+          <img src="logo.png" alt="Beqabakes Logo">
+          </div>
+          <div class="logo-text">
+            <h1 class="serif">Beqabakes</h1>
+            <p style="color: rgba(255,255,255,0.7);">Because Beqa dey Bake.</p>
+          </div>
+        </div>
+        <div class="footer-links">
+          <a href="https://wa.me/2349056722179">WhatsApp Order</a>
+          <a href="https://instagram.com/beqabakes">@beqabakes</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Abuja, Nigeria • Every box feels like a celebration</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile CTA -->
+  <div class="mobile-cta hidden" id="mobileCTA">
+    <button class="btn" onclick="openOrderModal('Mobile Order', 5000)" style="width: 100%; text-align: center;">Order Now</button>
+  </div>
+
+  <!-- Order Modal -->
+  <div class="modal-overlay" id="orderModal">
+    <div class="modal">
+      <div class="modal-header">
+        <button class="close-modal" onclick="closeModal()">&times;</button>
+        <h3 class="serif" id="modalTitle">Complete Your Order</h3>
+        <p id="modalSubtitle">Almost there! Let's make this order special.</p>
+      </div>
+      <div class="modal-body">
+        <form id="orderForm">
+          <div class="order-summary">
+            <h4 class="serif">Order Summary</h4>
+            <div class="order-item">
+              <span id="orderItemName">Mini Gift Box</span>
+              <span id="orderItemPrice">₦5,000</span>
+            </div>
+            <div class="order-total">
+              <span>Total</span>
+              <span id="orderTotal">₦5,000</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="customerName">Full Name *</label>
+            <input type="text" id="customerName" name="name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="customerEmail">Email Address *</label>
+            <input type="email" id="customerEmail" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="customerPhone">Phone Number *</label>
+            <input type="tel" id="customerPhone" name="phone" required placeholder="+234">
+          </div>
+
+          <div class="form-group">
+            <label for="deliveryAddress">Delivery Address *</label>
+            <textarea id="deliveryAddress" name="address" required placeholder="Include area/landmark for easy delivery"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="deliveryDate">Preferred Delivery Date</label>
+            <input type="date" id="deliveryDate" name="delivery_date">
+          </div>
+
+          <div class="form-group">
+            <label for="specialRequest">Special Message/Request</label>
+            <textarea id="specialRequest" name="special_request" placeholder="Any special instructions or message for the handwritten note?"></textarea>
+          </div>
+
+          <div class="modal-actions">
+            <button type="button" class="btn btn-outline" onclick="closeModal()">Cancel</button>
+            <button type="submit" class="btn" id="payButton">Pay with Paystack</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Paystack Script -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+
+  <script>
+    // Global variables
+    let currentOrderItem = '';
+    let currentOrderPrice = 0;
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Mobile CTA visibility
+    let lastScroll = 0;
+    const mobileCTA = document.getElementById('mobileCTA');
+    
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (window.innerWidth <= 768) {
+        if (currentScroll > 300) {
+          mobileCTA.classList.remove('hidden');
+        } else {
+          mobileCTA.classList.add('hidden');
+        }
+      }
+      
+      lastScroll = currentScroll;
+    });
+
+    // Animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'all 0.8s ease';
+      observer.observe(el);
+    });
+
+    // Modal Functions
+    function openOrderModal(itemName, price) {
+      currentOrderItem = itemName;
+      currentOrderPrice = price;
+
+      document.getElementById('orderItemName').textContent = itemName;
+      document.getElementById('orderItemPrice').textContent = `₦${price.toLocaleString()}`;
+      document.getElementById('orderTotal').textContent = `₦${price.toLocaleString()}`;
+
+      document.getElementById('orderModal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+
+      // Set minimum date to today
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('deliveryDate').min = today;
+    }
+
+    function closeModal() {
+      document.getElementById('orderModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+      document.getElementById('orderForm').reset();
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('orderModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeModal();
+      }
+    });
+
+    // Form submission and Paystack integration
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      const customerData = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        address: formData.get('address'),
+        delivery_date: formData.get('delivery_date'),
+        special_request: formData.get('special_request'),
+        item: currentOrderItem,
+        amount: currentOrderPrice
+      };
+
+      // Validate required fields
+      if (!customerData.name || !customerData.email || !customerData.phone || !customerData.address) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+
+      // Validate email format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(customerData.email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      // Show loading state
+      const payButton = document.getElementById('payButton');
+      const originalText = payButton.textContent;
+      payButton.textContent = 'Processing';
+      payButton.classList.add('loading');
+
+      // Initialize Paystack payment
+      const handler = PaystackPop.setup({
+        key: 'pk_live_7830ba254e5ce06698924f47b3f52d7b19243a52', // Replace with your actual Paystack public key
+        email: customerData.email,
+        amount: customerData.amount * 100, // Paystack expects amount in kobo
+        currency: 'NGN',
+        ref: 'beqa_' + Math.floor((Math.random() * 1000000000) + 1),
+        metadata: {
+          custom_fields: [
+            {
+              display_name: "Item",
+              variable_name: "item",
+              value: customerData.item
+            },
+            {
+              display_name: "Delivery Address",
+              variable_name: "delivery_address",
+              value: customerData.address
+            },
+            {
+              display_name: "Phone Number",
+              variable_name: "phone",
+              value: customerData.phone
+            },
+            {
+              display_name: "Delivery Date",
+              variable_name: "delivery_date",
+              value: customerData.delivery_date || 'ASAP'
+            },
+            {
+              display_name: "Special Request",
+              variable_name: "special_request",
+              value: customerData.special_request || 'None'
+            }
+          ]
+        },
+        callback: function(response) {
+          // Payment successful
+          handlePaymentSuccess(response, customerData);
+        },
+        onClose: function() {
+          // Reset button state when payment is cancelled
+          payButton.textContent = originalText;
+          payButton.classList.remove('loading');
+        }
+      });
+
+      handler.openIframe();
+    });
+
+    function handlePaymentSuccess(response, customerData) {
+      // Reset button state
+      const payButton = document.getElementById('payButton');
+      payButton.textContent = 'Payment Successful!';
+      payButton.style.background = 'var(--green)';
+
+      // Here you would typically send the payment details to your backend
+      // For now, we'll simulate success and show confirmation
+      setTimeout(() => {
+        showSuccessMessage(customerData);
+        closeModal();
+        
+        // Send WhatsApp notification to business owner
+        sendWhatsAppNotification(customerData, response.reference);
+      }, 1000);
+
+      // Log payment details (in production, send to your backend)
+      console.log('Payment successful:', {
+        reference: response.reference,
+        customer: customerData,
+        paystack_response: response
+      });
+    }
+
+    function showSuccessMessage(customerData) {
+      // Create success notification
+      const successDiv = document.createElement('div');
+      successDiv.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        z-index: 1001;
+        text-align: center;
+        max-width: 400px;
+        width: 90%;
+        animation: slideDown 0.3s ease;
+      `;
+
+      successDiv.innerHTML = `
+        <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
+        <h3 class="serif" style="color: var(--green); margin-bottom: 1rem;">Order Confirmed!</h3>
+        <p style="margin-bottom: 1.5rem; opacity: 0.8;">
+          Thank you ${customerData.name}! Your ${customerData.item} order has been confirmed. 
+          We'll send you a WhatsApp message with delivery updates.
+        </p>
+        <button class="btn" onclick="this.parentElement.remove()">Got it!</button>
+      `;
+
+      document.body.appendChild(successDiv);
+
+      // Auto-remove after 5 seconds
+      setTimeout(() => {
+        if (successDiv.parentElement) {
+          successDiv.remove();
+        }
+      }, 5000);
+    }
+
+    function sendWhatsAppNotification(customerData, paymentRef) {
+      // Format message for business owner
+      const message = `🎉 NEW ORDER ALERT!
+
+📦 Item: ${customerData.item}
+💰 Amount: ₦${customerData.amount.toLocaleString()}
+💳 Payment Ref: ${paymentRef}
+
+👤 Customer Details:
+Name: ${customerData.name}
+Phone: ${customerData.phone}
+Email: ${customerData.email}
+
+📍 Delivery:
+Address: ${customerData.address}
+Date: ${customerData.delivery_date || 'ASAP'}
+
+💌 Special Request:
+${customerData.special_request || 'None'}
+
+Respond to customer: https://wa.me/${customerData.phone.replace('+', '')}`;
+
+      // Send to business WhatsApp (you can modify this number)
+      const businessWhatsApp = 'https://wa.me/2349056722179?text=' + encodeURIComponent(message);
+      
+      // Open in new tab so it doesn't interrupt user experience
+      setTimeout(() => {
+        window.open(businessWhatsApp, '_blank');
+      }, 2000);
+    }
+
+    // Set today's date as minimum for delivery date
+    document.addEventListener('DOMContentLoaded', function() {
+      const today = new Date().toISOString().split('T')[0];
+      const deliveryDateInput = document.getElementById('deliveryDate');
+      if (deliveryDateInput) {
+        deliveryDateInput.min = today;
+      }
+    });
+
+    // Phone number formatting
+    document.getElementById('customerPhone').addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      
+      // Add +234 prefix for Nigerian numbers
+      if (value.length > 0 && !value.startsWith('234')) {
+        if (value.startsWith('0')) {
+          value = '234' + value.substring(1);
+        } else if (value.length === 10) {
+          value = '234' + value;
+        }
+      }
+      
+      // Format with + prefix
+      if (value.length > 0) {
+        e.target.value = '+' + value;
+      }
+    });
+
+    // Form validation feedback
+    const requiredFields = ['customerName', 'customerEmail', 'customerPhone', 'deliveryAddress'];
+    
+    requiredFields.forEach(fieldId => {
+      const field = document.getElementById(fieldId);
+      if (field) {
+        field.addEventListener('blur', function() {
+          if (!this.value.trim()) {
+            this.style.borderColor = 'var(--pink)';
+          } else {
+            this.style.borderColor = 'var(--green)';
+          }
+        });
+
+        field.addEventListener('input', function() {
+          if (this.value.trim()) {
+            this.style.borderColor = 'var(--green)';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
